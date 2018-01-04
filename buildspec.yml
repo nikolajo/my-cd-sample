@@ -5,4 +5,11 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t mydockerimage .
+      - docker build -t my-cd-image .
+      - docker tag my-cd-image nikolajo/my-cd-image
+post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - cat ~/secret.txt | docker login --username nikolajo --password-stdin
+      - docker push nikolajo/my-cd-image      
