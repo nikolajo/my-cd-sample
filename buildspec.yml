@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Docker Hub...
-      - cat ~/secret.txt | docker login --username nikolajo --password-stdin
+      - cat secret.txt | docker login --username nikolajo --password-stdin
   build:
     commands:
       - echo Build started on `date`
