@@ -16,5 +16,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push nikolajo/my-cd-image      
+      - echo Writing image definitions file...
+      - printf '[{"name":"my-cd-task","imageUri":"nikolajo/my-cd-image"}]' > myimagefile.json
 artifacts:
     files: myimagefile.json
