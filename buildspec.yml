@@ -7,7 +7,7 @@ phases:
       - echo Building the Docker image...          
       - docker build -t my-cd-image .
       - docker tag my-cd-image nikolajo/my-cd-image
-post_build:
+  post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
