@@ -7,13 +7,11 @@ phases:
       - cat numbers.txt | docker login --username nikolajo --password-stdin
   build:
     commands:
-      - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t my-cd-image .
       - docker tag my-cd-image nikolajo/my-cd-image
   post_build:
     commands:
-      - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push nikolajo/my-cd-image      
       - echo Writing image definitions file...
