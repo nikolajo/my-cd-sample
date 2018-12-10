@@ -7,10 +7,12 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- checkout: self  # self represents the repo where the initial Pipelines YAML file was found
+  clean: false
+  fetchDepth: 5
+  lfs: true
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: Topdanmark
