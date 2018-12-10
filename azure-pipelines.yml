@@ -13,6 +13,4 @@ steps:
   lfs: true
 - task: Docker@1
   displayName: 'Build an image'
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: Topdanmark
+  
